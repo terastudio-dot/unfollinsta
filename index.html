@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#1a73e8">
+  <meta charset="UTF-8">
+  <title>Unfollinsta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- RESPONSIVE -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <style>
+    :root {
+      font-size: 16px;
+    }
+    @media (max-width: 600px) {
+    :root {
+      font-size: 18px; /* more bigger in mobile */
+      }
+    }
+
+    :root {
+      --bg-color: #fac2ea; /* light mode */
+      --text-color: #000000;
+      --card-bg: #ffffff;
+      --link-color: #4d0da2;
+      --item-bg: #f2f2f2;
+      --textprocess-color: #ffffff;
+    }
+    body.dark-mode {
+      --bg-color: #121212; /* dark mode */
+      --text-color: #e0e0e0;
+      --card-bg: #1e1e1e;
+      --link-color: #ffffff;
+      --topbar-bg: #333;
+      --item-bg: #2a2a2a;
+      --textprocess-color: #000000;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 2rem;
+      margin: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid var(--link-color); /* adapting theme */
+      margin: 0.2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* smooth shadow */
+      border-radius: 60px; /* curving */
+    }
+
+    .topbar {
+      width: 66%;
+      margin: 0 auto; /* centre in horizontal */
+      background-image: linear-gradient(to right, #421cb3, #cb22a7, #940166);
+      border-radius: 16px 16px 16px 16px;
+      color: white;
+      padding: 1rem;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between; /* lock for left-right side */
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 600px) {
+    .topbar {
+      width: 100%;
+      }
+    }
+    
+    .topbar-title {
+      font-family: "PT Sans", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      font-size: 2.5rem; /* PC */
+      letter-spacing: 0.1px;
+    }
+    @media (max-width: 600px) {
+    .topbar-title {
+      font-family: "PT Sans", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      font-size: 1.5rem; /* mobile */
+      letter-spacing: 0.1px;
+      }
+    }
+
+    .topbar-subtitle {
+      font-family: "MuseoModerno", sans-serif;
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: #fff;
+      margin-top: 0.1rem;
+      margin-left: 2px;
+      letter-spacing: 0.1px;
+    }
+    @media (max-width: 600px) {
+    .topbar-subtitle {
+      font-family: "MuseoModerno", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 0.1rem; /* more bigger in mobile */
+      margin-top: 0.1rem;
+      letter-spacing: 0.1px;
+      }
+    }
+
+    .settings-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      margin: 0;
+      cursor: pointer;
+      padding: 0;
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .settings-btn:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      font-family: "Outfit", sans-serif;
+      max-width: 600px;
+      margin: auto;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0px 30px 300px rgb(78, 5, 110);
+      border-radius: 16px 16px 16px 16px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .description,
+    .tutorial {
+      font-family: "Outfit", sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      background-color: var(--card-bg);
+      padding: 0.1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    @media (max-width: 600px) {
+    .description,
+    .tutorial {
+      font-size: 0.8rem;
+      padding: 0.1rem;
+      }
+    }
+
+    input, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 75%;
+      background-color: var(--link-color);
+      color: var(--textprocess-color);
+      border: none;
+      cursor: pointer;
+      display: block;
+      margin: 1rem auto 0 auto; /* centre in horizontal */
+      font-family: "Outfit", sans-serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #result {
+      margin-top: 2rem;
+    }
+
+    ol {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      background: var(--item-bg);
+      padding: 0.5rem;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    a {
+      color: var(--link-color);
+      font-weight: bold;
+      word-break: break-word;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .settings-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    @media (max-width: 600px) {
+    .settings-icon {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      }
+    }
+
+    .tooltip-trigger {
+      cursor: pointer;
+      color: var(--link-color);
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .center-tooltip {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+    }
+    .tooltip-box {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      padding: 1.5rem;
+      border-radius: 20px;
+      max-width: 90%;
+      width: 400px;
+      font-size: 1rem;
+      position: relative;
+      box-shadow: 0 0 24px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="settings.html" class="settings-btn">
+      <img src="icons/settings2.png" alt="Settings" class="settings-icon">
+    </a>
+    <div>
+      <div class="topbar-title">Unfollinsta</div>
+      <div class="topbar-subtitle">from terastudio</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="description" id="descriptionText"></div>
+      <hr class="divider">
+    <div class="tutorial" id="tutorialText"></div>
+    <p id="uploadText"></p>
+    <input type="file" id="zipFile" accept=".zip">
+    <button id="processBtn" onclick="processZip()"></button>
+    <div id="result"></div>
+    <p id="appVersion" style="text-align:center; font-size: 0.3rem; opacity: 0.8;"></p>
+    <div id="centerTooltip" class="center-tooltip hidden">
+    <div class="tooltip-box">
+      <span class="close-btn" onclick="hideTooltip()">✖</span>
+      <p id="tooltipContent"></p>
+    </div>
+    </div>
+  </div>
+  
+  <script>
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    function extractUsernamesFromHTML(htmlContent) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+      const anchors = doc.querySelectorAll('a');
+      const usernames = [];
+      anchors.forEach(a => {
+        const username = a.textContent.trim();
+        if (username) {
+          usernames.push(username);
+        }
+      });
+      return usernames;
+    }
+
+    async function processZip() {
+      const fileInput = document.getElementById('zipFile');
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      document.getElementById('result').innerHTML = languageTexts[lang].extracting;
+
+      const zip = await JSZip.loadAsync(file);
+
+      // followers & following file location
+      const followersPath = 'connections/followers_and_following/followers_1.html';
+      const followingPath = 'connections/followers_and_following/following.html';
+      const followersFile = zip.file(followersPath);
+      const followingFile = zip.file(followingPath);
+      if (!followersFile || !followingFile) {
+        document.getElementById('result').innerHTML = `<p style="color:red;">${languageTexts[lang].fileError}</p>`;
+        return;
+      }
+
+      const followersHTML = await followersFile.async('string');
+      const followingHTML = await followingFile.async('string');
+      const followers = extractUsernamesFromHTML(followersHTML);
+      const following = extractUsernamesFromHTML(followingHTML);
+      const unfollowers = following.filter(user => !followers.includes(user));
+      displayResults(unfollowers);
+    }
+
+    const languageTexts = {
+    id: {
+      upload: 'Lalu, unggahlah file ZIP-nya dibawah ini',
+      process: 'Proses ZIP',
+      total: 'Jumlah Unfollowers',
+      allFollow: 'Semua orang yang kamu follow juga follow kamu balik.',
+      fileError: 'File followers.html atau following.html tidak ditemukan di dalam ZIP.',
+      description: 'Unfollinsta dapat mengetahui siapa saja unfollowers atau yang tidak mengikuti balik akun Instagram kamu.',
+      tutorial: `Dapatkan file ZIP-nya terlebih dahulu (yang didapat dari Pusat Akun) agar bisa diproses!<br>
+      <span class="tooltip-trigger" onclick="showTooltip()">Lihat Tutorial</span>`,
+      extracting: 'Mengekstrak ZIP...',
+      },
+    en: {
+      upload: 'Then, upload the ZIP file below',
+      process: 'Process ZIP',
+      total: 'Total Unfollowers',
+      allFollow: 'Everyone you follow follows you back.',
+      fileError: 'followers.html or following.html file not found in ZIP.',
+      description: 'Unfollinsta can find out who are unfollowers or who do not follow back your Instagram account.',
+      tutorial: `Get the ZIP file first (obtained from the Accounts Center) so that it can be processed!<br>
+      <span class="tooltip-trigger" onclick="showTooltip()">See Tutorial</span>`,
+      extracting: 'Extracting ZIP...',
+      }
+    };
+
+    function showTooltip() {
+    const content = {
+    id: `Buka Pusat Akun > Informasi dan izin Anda > Unduh informasi Anda > Mengunduh atau mentransfer informasi >
+         Pilih akun Instagram kamu > Beberapa informasi Anda > Pilih "Pengikut dan Mengikuti (Connections)" >
+         Unduh ke perangkat > Format HTML > Buat file > Tunggu beberapa waktu > Unduh ZIP di Unduh informasi Anda`,
+    en: `Go to Accounts Center > Your information and permissions > Download your information > Download or transfer information >
+         Select your Instagram account > Some of your information > Select "Followers and following (Connections)" > 
+         Download to device > Format HTML > Create files > Wait few moments > Download ZIP in Download your information`
+      };
+      document.getElementById('tooltipContent').innerHTML = content[lang];
+      document.getElementById('centerTooltip').classList.remove('hidden');
+    }
+
+    function hideTooltip() {
+      document.getElementById('centerTooltip').classList.add('hidden');
+    }
+
+    const lang = localStorage.getItem('lang') || 'id';
+    // runnin after showing the html elements
+    document.getElementById('uploadText').textContent = languageTexts[lang].upload;
+    document.getElementById('descriptionText').textContent = languageTexts[lang].description;
+    document.getElementById('tutorialText').innerHTML = languageTexts[lang].tutorial;
+    document.getElementById('processBtn').textContent = languageTexts[lang].process;
+
+    function displayResults(unfollowers) {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `<h3>${languageTexts[lang].total}: ${unfollowers.length}</h3>`;
+      if (unfollowers.length === 0) {
+        resultDiv.innerHTML += `<p>${languageTexts[lang].allFollow}</p>`;
+        return;
+      }
+
+      const ol = document.createElement('ol');
+      unfollowers.forEach(user => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `https://www.instagram.com/${user}/`;
+        link.textContent = user;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        li.appendChild(link);
+        ol.appendChild(li);
+      });
+      resultDiv.appendChild(ol);
+    }
+      const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+  </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('Service Worker registered ✅'))
+      .catch(err => console.error('Service Worker registration failed ❌', err));
+    }
+  fetch('manifest.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('appVersion').textContent = `version: ${data.version}`;
+    });
+  </script>
+</body>
+</html>

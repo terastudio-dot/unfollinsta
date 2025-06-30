@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>[Settings] Unfollinsta</title>
+
+  <style>
+    :root {
+      --bg-color: #ffe7f8;
+      --text-color: #000000;
+      --link-color: #000000;
+      --primary-color: #4d0da2;
+      --heading-color: #000000;
+      --strip-color: #000000;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --link-color: #ffffff;
+      --primary-color: #4d90fe;
+      --heading-color: #ffffff;
+      --strip-color: #ffffff;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 2rem;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* smooth shadow */
+    }
+
+    h1 {
+      font-family: "PT Sans", sans-serif;
+      color: var(--heading-color);
+      font-size: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.6px solid var(--heading-color);
+      box-shadow: 0 2px 0px rgba(0, 0, 0, 0.3); /* smooth shadow */
+      margin-bottom: 0.1rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    label {
+      margin-top: 1rem;
+      display: block;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
+    select {
+      font-size: 1.2rem;
+      padding: 0.6rem;
+      border-radius: 16px;
+      width: 75%;
+      border: 2px solid var(--primary-color);
+      background-color: var(--card-bg, #4d0da2);
+      color: #ffffff;
+      transition: background-color 0.3s, color 0.3s, border 0.3s;
+      appearance: none;
+      margin-top: 1rem;
+      display: block;
+      margin: 1rem auto;
+      text-align: left;
+    }
+      body.dark-mode select {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      border-color: var(--link-color);
+    }
+
+    .setting-item {
+      padding: 0.1rem 0;
+    }
+    .setting-item:last-of-type {
+      border-bottom: none;
+    }
+    .settings-container {
+      background-color: white;
+      color: black;
+      padding: 1.5rem;
+      border-radius: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .settings-container {
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #backLink {
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+      flex-wrap: wrap;
+      text-align: center;
+      flex-direction: row;
+      gap: 12px;
+    }
+    .footer-logo img {
+      max-width: 100%;
+      width: 160px;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    @media (max-width: 600px) {
+      .footer-logo img {
+        width: 120px;
+      }
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.1rem;
+    }
+    .footer-logo img {
+      height: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    #youtubeIcon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+    #youtubeIcon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body class="centered">
+  <h1 id="title">Pengaturan</h1>
+  <div class="settings-container centered">
+    <div class="setting-item">
+    <label for="languageSelect" id="languageLabel">Pilih Bahasa / Select Language:</label>
+    <select id="languageSelect">
+      <option value="id">Indonesian</option>
+      <option value="en">English</option>
+    </select>
+    </div>
+    <div class="setting-item">
+      <label for="themeSelect" id="themeLabel">Pilih Tema / Theme Mode:</label>
+      <select id="themeSelect">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  </div>
+
+  <p><a id="backLink" href="index.html">⬅️ Kembali</a></p>
+  <div class="footer-logo">
+    <img id="footerLogo" src="icons/terastudio-light2.png" alt="Unfollinsta Logo" />
+    <a href="http://www.youtube.com/@terastudiocilangkap" target="_blank" rel="noopener noreferrer">
+    <img id="youtubeIcon" src="icons/ytlight.png" alt="YouTube Channel" />
+  </a>
+  </div>
+  <footer style="text-align:center; font-size:0.3rem; opacity:0.8;">
+  <strong>terastudio</strong> &copy; 2025
+  </footer>
+
+  <script>
+    const languageTexts = {
+      id: {
+        title: "Pengaturan",
+        languageLabel: "Bahasa",
+        themeLabel: "Tema",
+        backLink: "Kembali"
+      },
+      en: {
+        title: "Settings",
+        languageLabel: "Language",
+        themeLabel: "Theme",
+        backLink: "Back"
+      }
+    };
+
+    const langSelect = document.getElementById("languageSelect");
+    const themeSelect = document.getElementById("themeSelect");
+
+    function applyLanguage(lang) {
+      const texts = languageTexts[lang];
+      document.getElementById("title").textContent = texts.title;
+      document.getElementById("languageLabel").textContent = texts.languageLabel;
+      document.getElementById("themeLabel").textContent = texts.themeLabel;
+      document.getElementById("backLink").textContent = texts.backLink;
+    }
+
+    function applyTheme(theme) {
+      document.body.classList.toggle("dark-mode", theme === "dark");
+    }
+
+    // get settings
+    const savedLang = localStorage.getItem("lang") || "id";
+    const savedTheme = localStorage.getItem("theme") || "light";
+    langSelect.value = savedLang;
+    themeSelect.value = savedTheme;
+    applyLanguage(savedLang);
+    applyTheme(savedTheme);
+
+    // choose language
+    langSelect.addEventListener("change", () => {
+      const lang = langSelect.value;
+      localStorage.setItem("lang", lang);
+      applyLanguage(lang);
+    });
+
+    // choose theme
+    themeSelect.addEventListener("change", () => {
+      const theme = themeSelect.value;
+      localStorage.setItem("theme", theme);
+      applyTheme(theme);
+    });
+
+    function applyTheme(theme) {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    const logo = document.getElementById("footerLogo");
+      if (logo) {
+      logo.src = theme === "dark" ? "icons/terastudio-dark2.png" : "icons/terastudio-light2.png";
+      }
+    const youtubeIcon = document.getElementById("youtubeIcon");
+      if (youtubeIcon) {
+      youtubeIcon.src = theme === "dark"
+      ? "icons/ytdark.png"
+      : "icons/ytlight.png";
+      }
+    };
+
+    function isMobileDevice() {
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+    const youtubeLink = document.getElementById("youtubeLink");
+    if (youtubeLink && isMobileDevice()) {
+      youtubeLink.href = "youtube://www.youtube.com/@terastudiocilangkap";
+    }
+  </script>
+</body>
+</html>

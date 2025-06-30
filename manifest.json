@@ -1,0 +1,22 @@
+{
+  "name": "Unfollinsta",
+  "short_name": "Unfollinsta",
+  "description": "Unfollowers Instagram Checker app from terastudio.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4d0da2",
+  "version": "1.0",
+  "icons": [
+    {
+      "src": "icons/unfollinsta192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/unfollinsta512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
