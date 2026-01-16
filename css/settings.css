@@ -1,0 +1,146 @@
+    :root {
+      --bg-color: #ffe7f8;
+      --text-color: #000000;
+      --link-color: #000000;
+      --primary-color: #4d0da2;
+      --heading-color: #000000;
+      --strip-color: #000000;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --link-color: #ffffff;
+      --primary-color: #4d90fe;
+      --heading-color: #ffffff;
+      --strip-color: #ffffff;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 2rem;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* smooth shadow */
+    }
+
+    h1 {
+      font-family: "PT Sans", sans-serif;
+      color: var(--heading-color);
+      font-size: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.6px solid var(--heading-color);
+      box-shadow: 0 2px 0px rgba(0, 0, 0, 0.3); /* smooth shadow */
+      margin-bottom: 0.1rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    label {
+      margin-top: 1rem;
+      display: block;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
+    select {
+      font-size: 1.2rem;
+      padding: 0.6rem;
+      border-radius: 16px;
+      width: 75%;
+      border: 2px solid var(--primary-color);
+      background-color: var(--card-bg, #4d0da2);
+      color: #ffffff;
+      transition: background-color 0.3s, color 0.3s, border 0.3s;
+      appearance: none;
+      margin-top: 1rem;
+      display: block;
+      margin: 1rem auto;
+      text-align: left;
+    }
+      body.dark-mode select {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      border-color: var(--link-color);
+    }
+
+    .setting-item {
+      padding: 0.1rem 0;
+    }
+    .setting-item:last-of-type {
+      border-bottom: none;
+    }
+    .settings-container {
+      background-color: white;
+      color: black;
+      padding: 1.5rem;
+      border-radius: 40px;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    body.dark-mode .settings-container {
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #backLink {
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+      flex-wrap: wrap;
+      text-align: center;
+      flex-direction: row;
+      gap: 12px;
+    }
+    .footer-logo img {
+      max-width: 100%;
+      width: 70px;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    @media (max-width: 600px) {
+      .footer-logo img {
+        width: 50px;
+      }
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.1rem;
+    }
+    .footer-logo img {
+      height: auto;
+      transition: opacity 0.3s ease;
+    }
+
+    #youtubeIcon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+    #youtubeIcon:hover {
+      transform: scale(1.1);
+    }
