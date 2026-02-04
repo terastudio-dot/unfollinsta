@@ -90,30 +90,32 @@
         id: [
           "Buka Pusat Akun",
           "Masuk ke menu Informasi dan izin Anda",
-          "Pilih Unduh informasi Anda",
-          "Pilih Mengunduh atau mentransfer informasi",
+          "Pilih Ekspor informasi Anda",
+          "Pilih Buat ekspor",
           "Pilih akun Instagram kamu",
-          "Pilih Beberapa informasi Anda",
-          "Pilih Pengikut dan Mengikuti (Connections)",
-          "Pilih Unduh ke perangkat",
+          "Pilih Ekspor ke perangkat".
+          "Pilih Sesuaikan informasi",
+          "Pilih Pengikut dan Mengikuti (Koneksi)",
+          "Pilih Rentang tanggal (direkomendasikan pilih Sepanjang Waktu)",
           "Pilih format HTML",
-          "Klik Buat file",
-          "Tunggu beberapa waktu hingga selesai",
-          "Unduh file ZIP di menu Unduh informasi Anda"
+          "Klik Mulai ekspor",
+          "Tunggu permintaan hingga Instagram memberi file ZIP yang dapat kamu unduh",
+          "Unduh file ZIP di menu Ekspor informasi Anda"
         ],
         en: [
           "Open Accounts Center",
           "Go to Your information and permissions",
-          "Select Download your information",
-          "Choose Download or transfer information",
+          "Select Export your information",
+          "Choose Create export",
           "Select your Instagram account",
-          "Choose Some of your information",
+          "Export to device",
+          "Choose Customize information",
           "Select Followers and following (Connections)",
-          "Choose Download to device",
+          "Choose Date range (recommended choose All time)",
           "Select HTML format",
-          "Click Create files",
-          "Wait until the process is completed",
-          "Download the ZIP file from Download your information"
+          "Start export",
+          "Wait requested until Instagram give the ZIP that you can download it",
+          "Download the ZIP file from Export your information"
         ]
       };
 
@@ -189,3 +191,4 @@
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("js/sw.js");
     }
+
