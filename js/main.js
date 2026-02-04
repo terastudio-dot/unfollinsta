@@ -93,7 +93,7 @@
           "Pilih Ekspor informasi Anda",
           "Pilih Buat ekspor",
           "Pilih akun Instagram kamu",
-          "Pilih Ekspor ke perangkat".
+          "Pilih Ekspor ke perangkat",
           "Pilih Sesuaikan informasi",
           "Pilih Pengikut dan Mengikuti (Koneksi)",
           "Pilih Rentang tanggal (direkomendasikan pilih Sepanjang Waktu)",
@@ -191,4 +191,5 @@
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("js/sw.js");
     }
+
 
