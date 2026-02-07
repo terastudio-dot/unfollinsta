@@ -57,7 +57,7 @@
       border-radius: 16px;
       width: 75%;
       border: 2px solid var(--primary-color);
-      background-color: var(--card-bg, #4d0da2);
+      background-color: var(--card-bg, #200b51);
       color: #ffffff;
       transition: background-color 0.3s, color 0.3s, border 0.3s;
       appearance: none;
@@ -143,4 +143,5 @@
     }
     #youtubeIcon:hover {
       transform: scale(1.1);
+
     }
