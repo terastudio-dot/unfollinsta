@@ -8,10 +8,10 @@
     }
 
     :root {
-      --bg-color: #fac2ea; /* light mode */
+      --bg-color: #ffecfa; /* light mode */
       --text-color: #000000;
       --card-bg: #ffffff;
-      --link-color: #4d0da2;
+      --link-color: #200b51;
       --item-bg: #f2f2f2;
       --textprocess-color: #ffffff;
     }
@@ -28,7 +28,7 @@
       font-family: Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      padding: 2rem;
+      padding: 0.5rem;
       margin: 0;
       transition: background-color 0.3s, color 0.3s;
     }
@@ -52,8 +52,8 @@
       /* Glassmorphism */
       background: linear-gradient(
         to right,
-        rgba(66, 28, 179, 0.75),
-        rgba(203, 34, 167, 0.75),
+        rgba(35, 11, 108, 0.75),
+        rgba(192, 10, 153, 0.75),
         rgba(148, 1, 102, 0.75)
       );
       backdrop-filter: blur(14px);
@@ -183,7 +183,7 @@
             flex-direction: column;
         }
         .content-right {
-            margin-top: 1rem;
+            margin-top: 0.6rem;
         }
         .content-right input {
             font-size: 0.6rem;
@@ -235,6 +235,7 @@
 
     #result {
       margin-top: 2rem;
+      font-size: 0.8rem;
     }
 
     ol {
@@ -246,7 +247,7 @@
       padding: 0.5rem;
       margin-bottom: 5px;
       border-radius: 4px;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
 
     a {
